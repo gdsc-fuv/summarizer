@@ -15,7 +15,10 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: srPrimaryBlue,
       foregroundColor: Colors.white,
-      title: const Text("Summarizer"),
+      title: const Padding(
+        padding: EdgeInsets.only(left: 20),
+        child: Text("Summarizer"),
+      ),
     );
   }
 }
