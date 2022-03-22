@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:summarizer/widgets/folder_view.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,6 +11,7 @@ class HomePage extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(left: 50),
         child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Row(children: const [
               Text(
@@ -50,57 +52,14 @@ class HomePage extends StatelessWidget {
                       primary: false,
                       crossAxisCount: 5,
                       crossAxisSpacing: 10,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(5),
-                          color: const Color.fromARGB(255, 229, 229, 229),
-                          child: const Text("School",
-                              style: TextStyle(
-                                decoration: TextDecoration.none,
-                                fontSize: 20,
-                                color: Color.fromARGB(255, 32, 32, 32),
-                              )),
-                        ),
-                        Container(
-                          // padding: const EdgeInsets.all(5),
-                          color: const Color.fromARGB(255, 229, 229, 229),
-                          child: const Text("GDSC stuffs",
-                              style: TextStyle(
-                                decoration: TextDecoration.none,
-                                fontSize: 20,
-                                color: Color.fromARGB(255, 32, 32, 32),
-                              )),
-                        ),
-                        Container(
-                          // padding: const EdgeInsets.all(5),
-                          color: const Color.fromARGB(255, 229, 229, 229),
-                          child: const Text("Research",
-                              style: TextStyle(
-                                decoration: TextDecoration.none,
-                                fontSize: 20,
-                                color: Color.fromARGB(255, 32, 32, 32),
-                              )),
-                        ),
-                        Container(
-                          // padding: const EdgeInsets.all(5),
-                          color: const Color.fromARGB(255, 229, 229, 229),
-                          child: const Text("Neko",
-                              style: TextStyle(
-                                decoration: TextDecoration.none,
-                                fontSize: 20,
-                                color: Color.fromARGB(255, 32, 32, 32),
-                              )),
-                        ),
-                        Container(
-                          // padding: const EdgeInsets.all(5),
-                          color: const Color.fromARGB(255, 229, 229, 229),
-                          child: const Text("Content that's up for adoption",
-                              style: TextStyle(
-                                decoration: TextDecoration.none,
-                                fontSize: 20,
-                                color: Color.fromARGB(255, 32, 32, 32),
-                              )),
-                        ),
+                      children: const [
+                        (5 > 2)
+                            ? FolderView(header: "1 is bigger than 2")
+                            : FolderView(header: "1 is smaller than 2"),
+                        FolderView(header: "Hello 2"),
+                        FolderView(header: "Hello 3"),
+                        FolderView(header: "Hello"),
+                        FolderView(header: "Hello"),
                       ],
                     )),
                 SizedBox(
@@ -111,57 +70,12 @@ class HomePage extends StatelessWidget {
                     crossAxisCount: 5,
                     crossAxisSpacing: 10,
                     padding: const EdgeInsets.all(10.0),
-                    children: [
-                      Container(
-                        // padding: const EdgeInsets.all(5),
-                        color: const Color.fromARGB(255, 229, 229, 229),
-                        child: const Text("Content my mom warned me about",
-                            style: TextStyle(
-                              decoration: TextDecoration.none,
-                              fontSize: 20,
-                              color: Color.fromARGB(255, 32, 32, 32),
-                            )),
-                      ),
-                      Container(
-                        // padding: const EdgeInsets.all(5),
-                        color: const Color.fromARGB(255, 229, 229, 229),
-                        child: const Text("Inherited disaster",
-                            style: TextStyle(
-                              decoration: TextDecoration.none,
-                              fontSize: 20,
-                              color: Color.fromARGB(255, 32, 32, 32),
-                            )),
-                      ),
-                      Container(
-                        // padding: const EdgeInsets.all(5),
-                        color: const Color.fromARGB(255, 229, 229, 229),
-                        child: const Text("Y Combinator",
-                            style: TextStyle(
-                              decoration: TextDecoration.none,
-                              fontSize: 20,
-                              color: Color.fromARGB(255, 32, 32, 32),
-                            )),
-                      ),
-                      Container(
-                        // padding: const EdgeInsets.all(5),
-                        color: const Color.fromARGB(255, 229, 229, 229),
-                        child: const Text("Alex D Bloo",
-                            style: TextStyle(
-                              decoration: TextDecoration.none,
-                              fontSize: 20,
-                              color: Color.fromARGB(255, 32, 32, 32),
-                            )),
-                      ),
-                      Container(
-                        // padding: const EdgeInsets.all(5),
-                        color: const Color.fromARGB(255, 229, 229, 229),
-                        child: const Text("File too fat",
-                            style: TextStyle(
-                              decoration: TextDecoration.none,
-                              fontSize: 20,
-                              color: Color.fromARGB(255, 32, 32, 32),
-                            )),
-                      ),
+                    children: const [
+                      FolderView(header: "Hello"),
+                      FolderView(header: "Hello 2"),
+                      FolderView(header: "Hello 3"),
+                      SizedBox.shrink(),
+                      SizedBox(height: 0),
                     ],
                   ),
                 )
