@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:summarizer/widgets/folder_view.dart';
+import 'package:summarizer/widgets/left_panel.dart';
 import 'package:summarizer/widgets/nav_bar.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,6 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const Navbar(),
+      drawer: const NavDrawer(),
       body: Container(
         color: Colors.white,
         child: Padding(
