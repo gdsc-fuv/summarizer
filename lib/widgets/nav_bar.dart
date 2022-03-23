@@ -13,7 +13,7 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: srPrimaryBlue,
+      backgroundColor: AppColors.primBlue,
       foregroundColor: Colors.white,
       title: const Padding(
         padding: EdgeInsets.only(left: 20),
