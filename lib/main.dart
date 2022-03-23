@@ -1,3 +1,4 @@
+// test git
 import 'package:flutter/material.dart';
 // import 'package:text_summarizer/widgets/nav_bar.dart';
 // import 'pages/dashboard_page.dart';
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
