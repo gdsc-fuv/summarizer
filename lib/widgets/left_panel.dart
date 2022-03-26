@@ -42,10 +42,32 @@ class _NavDrawerState extends State<NavDrawer> {
                   controller: _firstController,
                   itemCount: 20,
                   itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
+                    return ExpansionTile(
+                        initiallyExpanded: false,
                         leading: const Icon(Icons.folder),
+                        trailing: const Icon(Icons.more_horiz),
                         title: Text('Folder $index'),
-                        onTap: () => {Navigator.of(context).pop()});
+                        //onTap: () => {Navigator.of(context).pop()});
+                        children: [
+                           ListView.builder(
+                             scrollDirection: Axis.vertical,
+                             shrinkWrap: true,
+                             itemCount: 8,
+                             itemBuilder: (BuildContext context, int index) {
+                               return ListTile(
+                                 leading: const Icon(Icons.folder),
+                                 contentPadding: const EdgeInsets.only(left: 50),
+                                 title: Text('Folder $index'),
+                                 onTap: () => {Navigator.of(context).pop()});
+                             }
+                           )
+                            // ListTile(
+                            //   leading: const Icon(Icons.folder),
+                            //   title: Text('Folder $index'),
+                            //   contentPadding: const EdgeInsets.only(left: 50),
+                            //   onTap: () => {Navigator.of(context).pop()})
+                        ],
+                        );
                   }),
             ),
           ],
