@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../helpers/text_heading.dart';
 import '../widgets/folder_button.dart';
+import '../widgets/left_panel.dart';
+import '../widgets/nav_bar.dart';
 // import '../widgets/left_panel.dart';
 // import '../widgets/nav_bar.dart';
 
@@ -9,13 +11,13 @@ class DashBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
         //appBar: NavBar(), // goi class cua Nguyen
         //body: LeftPanel() ,  // goi panel cua Phuong va Giang
-        appBar: AppBar(),
-        drawer: const Drawer(),
+        appBar: Navbar(),
+        drawer: NavDrawer(),
         drawerEnableOpenDragGesture: true,
-        body: const DashboardLayout());
+        body: DashboardLayout());
   }
 }
 
