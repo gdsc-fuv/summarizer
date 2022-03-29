@@ -20,7 +20,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
       // home: const HomePage(),
-      home: const DashBoard(),
+      // home: const DashBoard(),
+      initialRoute: DashBoard.routeName,
+      routes: {
+        DashBoard.routeName: (context) => DashBoard(),
+      },
     );
   }
 }

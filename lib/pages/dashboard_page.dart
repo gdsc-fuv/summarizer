@@ -7,6 +7,8 @@ import '../widgets/nav_bar.dart';
 // import '../widgets/nav_bar.dart';
 
 class DashBoard extends StatelessWidget {
+  static const routeName = "/dashboard";
+
   const DashBoard({Key? key}) : super(key: key);
 
   @override
