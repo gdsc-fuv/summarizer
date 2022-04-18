@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import '../constants/colors.dart';
 import '../helpers/text_heading.dart';
 import '../widgets/folder_button.dart';
 import '../widgets/left_panel.dart';
 import '../widgets/nav_bar.dart';
+
 // import '../widgets/left_panel.dart';
 // import '../widgets/nav_bar.dart';
 
@@ -17,29 +19,55 @@ class DashBoard extends StatelessWidget {
         //appBar: NavBar(), // goi class cua Nguyen
         //body: LeftPanel() ,  // goi panel cua Phuong va Giang
         appBar: Navbar(),
-        drawer: NavDrawer(),
+        // drawer: NavDrawer(),
         drawerEnableOpenDragGesture: true,
         body: DashboardLayout());
   }
 }
 
-class DashboardLayout extends StatelessWidget {
+class DashboardLayout extends StatefulWidget {
   const DashboardLayout({Key? key}) : super(key: key);
+
+  @override
+  State<DashboardLayout> createState() => _DashboardLayoutState();
+}
+
+class _DashboardLayoutState extends State<DashboardLayout> {
+  bool _isOpen = true;
 
   @override
   Widget build(BuildContext context) {
     return Row(children: [
-      Expanded(
-        flex: 2,
-        child: Container(child: NavDrawer()),
-      ),
+      _isOpen
+          ? Expanded(
+              flex: 2,
+              child: Container(child: const NavDrawer()),
+            )
+          : const SizedBox.shrink(),
       Expanded(
         flex: 7,
         child: Column(
           children: [
-            Expanded(flex: 1, child: ButtonArea()),
-            Expanded(flex: 3, child: FolderArea()),
-            Expanded(flex: 6, child: RecentFileArea()),
+            Container(
+                height: 50,
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.menu, color: AppColors.primBlue),
+                      tooltip: 'Open navbar',
+                      onPressed: () {
+                        setState(() {
+                          _isOpen = !_isOpen;
+                        });
+                      },
+                    ),
+                    const Text('Hello'),
+                  ],
+                )),
+            const Expanded(flex: 1, child: ButtonArea()),
+            const Expanded(flex: 3, child: FolderArea()),
+            const Expanded(flex: 6, child: RecentFileArea()),
           ],
         ),
       ),
@@ -122,7 +150,7 @@ class RecentFileArea extends StatelessWidget {
                 },
                 child: ListTile(
                   onTap: null,
-                  leading: Icon(Icons.book),
+                  leading: const Icon(Icons.book),
                   title: Row(
                     children: [
                       Expanded(child: Text(data[index])),

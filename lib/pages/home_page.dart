@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const Navbar(),
-      drawer: const NavDrawer(),
+      // drawer: const NavDrawer(),
       body: Container(
         color: Colors.white,
         child: Padding(
