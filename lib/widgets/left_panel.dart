@@ -70,6 +70,7 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:summarizer/constants/images.dart';
 
 class NavDrawer extends StatefulWidget {
   const NavDrawer({Key? key}) : super(key: key);
@@ -120,25 +121,76 @@ class _NavDrawerState extends State<NavDrawer> {
                       trailing: PopupMenuButton(
                         icon: const Icon(Icons.more_horiz),
                         itemBuilder: (context) => [
-                          const PopupMenuItem(
-                            child: Text("First"),
+                          PopupMenuItem(
+                            child: ListTile(
+                                //leading: Icon(logoutLogo),
+                                leading: moveToFolderLogo,
+                                title: const Text("Move to folder...")),
                             value: 1,
                           ),
-                          const PopupMenuItem(
-                            child: Text("Second"),
+                          PopupMenuItem(
+                            child: ListTile(
+                                //leading: Icon(logoutLogo),
+                                leading: renameLogo,
+                                title: const Text("Rename")),
                             value: 2,
-                          )
+                          ),
+                          PopupMenuItem(
+                            child: ListTile(
+                                //leading: Icon(logoutLogo),
+                                leading: createSubfolderLogo,
+                                title: const Text("Create a sub-folder")),
+                            value: 3,
+                          ),
+                          PopupMenuItem(
+                            child: ListTile(
+                                //leading: Icon(logoutLogo),
+                                leading: trashbinLogo,
+                                title: const Text("Delete")),
+                            value: 4,
+                          ),
                         ],
                       ),
                       children: [
                         ListTile(
-                            onTap: () {},
-                            leading: const Icon(Icons.folder),
-                            title: Text('Folder $index'),
-                            contentPadding: const EdgeInsets.only(left: 50),
-                            trailing: IconButton(
-                                icon: const Icon(Icons.more_horiz),
-                                onPressed: () {})),
+                          onTap: () {},
+                          leading: const Icon(Icons.folder),
+                          title: Text('Folder $index'),
+                          contentPadding: const EdgeInsets.only(left: 50),
+                          trailing: PopupMenuButton(
+                            icon: const Icon(Icons.more_horiz),
+                            itemBuilder: (context) => [
+                              PopupMenuItem(
+                                child: ListTile(
+                                    //leading: Icon(logoutLogo),
+                                    leading: moveToFolderLogo,
+                                    title: const Text("Move to folder...")),
+                                value: 1,
+                              ),
+                              PopupMenuItem(
+                                child: ListTile(
+                                    //leading: Icon(logoutLogo),
+                                    leading: renameLogo,
+                                    title: const Text("Rename")),
+                                value: 2,
+                              ),
+                              PopupMenuItem(
+                                child: ListTile(
+                                    //leading: Icon(logoutLogo),
+                                    leading: createSubfolderLogo,
+                                    title: const Text("Create a sub-folder")),
+                                value: 3,
+                              ),
+                              PopupMenuItem(
+                                child: ListTile(
+                                    //leading: Icon(logoutLogo),
+                                    leading: trashbinLogo,
+                                    title: const Text("Delete")),
+                                value: 4,
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     );
                   }),

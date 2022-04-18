@@ -28,10 +28,8 @@ class DashboardLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(children: [
       Expanded(
-        flex: 3,
-        child: Container(
-          color: Colors.red,
-        ),
+        flex: 2,
+        child: Container(child: NavDrawer()),
       ),
       Expanded(
         flex: 7,
