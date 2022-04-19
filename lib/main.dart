@@ -1,5 +1,6 @@
 // test git
 import 'package:flutter/material.dart';
+import 'package:summarizer/pages/dashboard_page.dart';
 // import 'package:text_summarizer/widgets/nav_bar.dart';
 // import 'pages/dashboard_page.dart';
 import 'pages/home_page.dart';
@@ -18,7 +19,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: const HomePage(),
+      // home: const HomePage(),
+      // home: const DashBoard(),
+      initialRoute: DashBoard.routeName,
+      routes: {
+        DashBoard.routeName: (context) => DashBoard(),
+      },
     );
   }
 }
