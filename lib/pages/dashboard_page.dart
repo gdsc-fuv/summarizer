@@ -32,18 +32,38 @@ class DashboardLayout extends StatefulWidget {
   State<DashboardLayout> createState() => _DashboardLayoutState();
 }
 
-class _DashboardLayoutState extends State<DashboardLayout> {
+class _DashboardLayoutState extends State<DashboardLayout>
+    with SingleTickerProviderStateMixin {
   bool _isOpen = true;
+  late final AnimationController _controller = AnimationController(
+    duration: const Duration(seconds: 1),
+    vsync: this,
+  );
+
+  late final Animation<Offset> _offsetAnimation = Tween<Offset>(
+    begin: Offset.zero,
+    end: const Offset(-1.5, 0.0),
+  ).animate(CurvedAnimation(
+    parent: _controller,
+    curve: Curves.easeIn,
+  ));
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Row(children: [
-      _isOpen
-          ? Expanded(
-              flex: 2,
-              child: Container(child: const NavDrawer()),
-            )
-          : const SizedBox.shrink(),
+      SlideTransition(
+        position: _offsetAnimation,
+        child: Expanded(
+          flex: 2,
+          child: Container(child: const NavDrawer()),
+        ),
+      ),
       Expanded(
         flex: 7,
         child: Column(
@@ -60,6 +80,9 @@ class _DashboardLayoutState extends State<DashboardLayout> {
                         setState(() {
                           _isOpen = !_isOpen;
                         });
+                        _isOpen ?
+                        _controller.forward()
+                            : _controller.reverse();
                       },
                     ),
                     const Text('Hello'),
