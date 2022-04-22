@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:summarizer/constants/colors.dart';
 import 'package:summarizer/constants/images.dart';
 
+import '../helpers/text_heading.dart';
+
 class NavDrawer extends StatefulWidget {
   const NavDrawer({Key? key}) : super(key: key);
 
@@ -63,14 +65,14 @@ class _NavDrawerState extends State<NavDrawer> {
                                           BorderRadius.circular(20.0)),
                                   child: Container(
                                     width: 500,
-                                    height: 330,
+                                    height: 360,
                                     //color: Colors.white,
                                     decoration: const BoxDecoration(
                                         color: Colors.white),
                                     child: Column(
                                       children: [
                                         Container(
-                                          height: 50,
+                                          height: 30,
                                           width: MediaQuery.of(context).size.width,
                                           alignment: Alignment.centerRight,
                                           color: AppColors.penBlue,
@@ -81,57 +83,100 @@ class _NavDrawerState extends State<NavDrawer> {
                                           ),
                                         ),
                                         Expanded(
-                                          child: Column(
-                                            children: [
-                                              const Text("Move to folder",
-                                                  style: TextStyle(fontWeight: FontWeight.bold)
-                                              ),
-                                              Expanded(
-                                                child: Column(
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                const Expanded(
+                                                    child: TitleLarge('Move to folder...'),
+                                                ),
+                                                Column(
                                                   children: [
-                                                    const Text("Choose a destination"),
-                                                    ListView.builder(
-                                                        itemCount: 10,
-                                                        shrinkWrap: true,
-                                                        itemBuilder:
-                                                            (BuildContext context, int index) {
-                                                          return ListTile(
-                                                            title: Text("Research project $index"),
-                                                            trailing: Icon(Icons.more_horiz),
-                                                          );
-                                                        }),
-                                                  ],
-                                                ),
-                                              ),
-                                              Container(
-                                                height: 50,
-                                                child: Row(
-                                                  crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
-                                                  children: <Widget>[
-                                                    ElevatedButton(
-                                                      onPressed: () {},
-                                                      child: const Text("Cancel"),
-                                                      style: ElevatedButton.styleFrom(
-                                                          primary: Colors.white,
-                                                          textStyle: const TextStyle(
-                                                              fontSize: 10)),
+                                                    Container(
+                                                      margin: const EdgeInsets.symmetric(vertical: 15),
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(4.0),
+                                                        border: Border.all(
+                                                          color: Colors.grey,
+                                                          width: 0.5,
+                                                        ),
+                                                      ),
+                                                      child: Column(
+                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                        children: [
+                                                        Container(
+                                                          // height: 50,
+                                                            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                                                            width: double.infinity,
+                                                            decoration: const BoxDecoration(
+                                                              border: Border(bottom: BorderSide( //                   <--- left side
+                                                                color: Colors.grey,
+                                                                width: 0.5,
+                                                              ),
+                                                              ),
+                                                            ),
+                                                            child: LabelLarge("Choose a destination")),
+                                                        Container(
+                                                          height: 150,
+                                                          child: Scrollbar(
+                                                            isAlwaysShown: true,
+                                                            // thickness: 20,
+                                                            child: ListView.builder(
+                                                                itemCount: 10,
+                                                                shrinkWrap: true,
+                                                                itemBuilder:
+                                                                    (BuildContext context, int index) {
+                                                                  return Container(
+                                                                    height: 50,
+                                                                    decoration: const BoxDecoration(
+                                                                      border: Border(bottom: BorderSide( //                   <--- left side
+                                                                        color: Colors.grey,
+                                                                        width: 0.5,
+                                                                      ),
+                                                                      ),
+                                                                    ),
+                                                                    child: ListTile(
+                                                                      title: LabelLarge("Research project $index"),
+                                                                      trailing: Icon(Icons.more_horiz),
+                                                                    ),
+                                                                  );
+                                                                }),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                      ),
                                                     ),
-                                                    ElevatedButton(
-                                                      onPressed: () {},
-                                                      child: const Text("Move here"),
-                                                      style: ElevatedButton.styleFrom(
-                                                          primary:
-                                                          Colors.lightBlue[900],
-                                                          textStyle: const TextStyle(
-                                                              fontSize: 10)),
-                                                    )
+                                                    Row(
+                                                      mainAxisAlignment: MainAxisAlignment.end,
+                                                      crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                      children: <Widget>[
+                                                        ElevatedButton(
+                                                          onPressed: () {},
+                                                          child: const Text("Cancel",
+                                                          style: TextStyle(color: AppColors.primBlue),),
+                                                          style: ElevatedButton.styleFrom(
+                                                            primary:
+                                                            Colors.white,
+                                                          ),
+                                                        ),
+                                                        ElevatedButton(
+                                                          onPressed: () {},
+                                                          child: LabelMedium("Move here"),
+                                                          style: ElevatedButton.styleFrom(
+                                                              primary:
+                                                              AppColors.primBlue,
+                                                        ),)
+                                                      ],
+                                                    ),
                                                   ],
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
+
                                       ],
                                     ),
                                   ),
