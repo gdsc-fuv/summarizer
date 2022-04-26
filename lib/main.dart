@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
       initialRoute: Dashboard.routeName,
       routes: {
         Dashboard.routeName: (context) => Dashboard(),
+        HomePage.routeName: (context) => HomePage(),
       },
     );
   }

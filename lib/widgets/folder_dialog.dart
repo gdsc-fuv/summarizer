@@ -4,9 +4,10 @@ import '../constants/colors.dart';
 import '../helpers/text_heading.dart';
 
 class FolderDialog extends StatelessWidget {
-  const FolderDialog({Key? key, required this.folderDialogBody}) : super(key: key);
+  const FolderDialog({Key? key, required this.folderDialogBody, required this.height}) : super(key: key);
 
   final Widget folderDialogBody;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class FolderDialog extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
       child: Container(
         width: 500,
-        height: 400,
+        height: height,
         child: Column(
           children: [
             Container(
