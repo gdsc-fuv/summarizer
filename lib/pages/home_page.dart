@@ -4,6 +4,8 @@ import 'package:summarizer/widgets/left_panel.dart';
 import 'package:summarizer/widgets/nav_bar.dart';
 
 class HomePage extends StatelessWidget {
+  static const routeName = "/";
+
   const HomePage({Key? key}) : super(key: key);
 
   @override

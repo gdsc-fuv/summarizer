@@ -18,7 +18,17 @@ class FolderDropdownItems extends StatelessWidget {
               context: context,
               builder: (BuildContext context) {
                 return const FolderDialog(
+                  height: 400,
                     folderDialogBody: MoveFolderDialogBody());
+              });
+        }
+        if (result == 2) {
+          showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return const FolderDialog(
+                  height: 300,
+                    folderDialogBody: RenameDialogBody());
               });
         }
       },
@@ -130,3 +140,13 @@ class MoveFolderDialogBody extends StatelessWidget {
     );
   }
 }
+
+class RenameDialogBody extends StatelessWidget {
+  const RenameDialogBody({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text('Hello');
+  }
+}
+
