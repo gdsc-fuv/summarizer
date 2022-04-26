@@ -2,22 +2,21 @@ import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 import '../helpers/text_heading.dart';
 import '../widgets/folder_button.dart';
+import '../widgets/folder_dialog.dart';
 import '../widgets/left_panel.dart';
 import '../widgets/nav_bar.dart';
 
 // import '../widgets/left_panel.dart';
 // import '../widgets/nav_bar.dart';
 
-class DashBoard extends StatelessWidget {
+class Dashboard extends StatelessWidget {
   static const routeName = "/dashboard";
 
-  const DashBoard({Key? key}) : super(key: key);
+  const Dashboard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-        //appBar: NavBar(), // goi class cua Nguyen
-        //body: LeftPanel() ,  // goi panel cua Phuong va Giang
         appBar: Navbar(),
         // drawer: NavDrawer(),
         drawerEnableOpenDragGesture: true,
@@ -56,7 +55,7 @@ class _DashboardLayoutState extends State<DashboardLayout>
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
+      return Row(children: [
       SlideTransition(
         position: _offsetAnimation,
         child: Expanded(
@@ -80,9 +79,7 @@ class _DashboardLayoutState extends State<DashboardLayout>
                         setState(() {
                           _isOpen = !_isOpen;
                         });
-                        _isOpen ?
-                        _controller.forward()
-                            : _controller.reverse();
+                        _isOpen ? _controller.forward() : _controller.reverse();
                       },
                     ),
                     const Text('Hello'),

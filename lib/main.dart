@@ -21,9 +21,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(),
       // home: const HomePage(),
       // home: const DashBoard(),
-      initialRoute: DashBoard.routeName,
+      initialRoute: Dashboard.routeName,
       routes: {
-        DashBoard.routeName: (context) => DashBoard(),
+        Dashboard.routeName: (context) => Dashboard(),
       },
     );
   }
