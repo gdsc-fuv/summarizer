@@ -1,3 +1,6 @@
+import 'dart:html';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:summarizer/widgets/folder_dialog.dart';
 
@@ -18,17 +21,34 @@ class FolderDropdownItems extends StatelessWidget {
               context: context,
               builder: (BuildContext context) {
                 return const FolderDialog(
-                  height: 400,
+                    rightText: "Move here",
+                    width: 500,
+                    height: 400,
                     folderDialogBody: MoveFolderDialogBody());
               });
         }
+
         if (result == 2) {
           showDialog(
               context: context,
               builder: (BuildContext context) {
                 return const FolderDialog(
-                  height: 300,
-                    folderDialogBody: RenameDialogBody());
+                    rightText: "Confirm",
+                    width: 500,
+                    height: 250,
+                    folderDialogBody: RenameBox());
+              });
+        }
+
+        if (result == 3) {
+          showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return const FolderDialog(
+                    rightText: "Confirm",
+                    width: 500,
+                    height: 250,
+                    folderDialogBody: SubfolderName());
               });
         }
       },
@@ -141,12 +161,54 @@ class MoveFolderDialogBody extends StatelessWidget {
   }
 }
 
-class RenameDialogBody extends StatelessWidget {
-  const RenameDialogBody({Key? key}) : super(key: key);
+class RenameBox extends StatelessWidget {
+  const RenameBox({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Text('Hello');
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: const <Widget>[
+        Padding(padding: EdgeInsets.all(15)),
+        TitleLarge("Rename this folder"),
+        Padding(padding: EdgeInsets.symmetric(vertical: 10, horizontal: 3)),
+        SizedBox(
+          width: 450,
+          child: TextField(
+            obscureText: true,
+            decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: "Enter a new name ..."),
+          ),
+        )
+      ],
+    );
   }
 }
 
+class SubfolderName extends StatelessWidget {
+  const SubfolderName({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: const <Widget>[
+        Padding(padding: EdgeInsets.all(15)),
+        TitleLarge("Name your subfolder"),
+        Padding(padding: EdgeInsets.symmetric(vertical: 10, horizontal: 3)),
+        SizedBox(
+          width: 450,
+          child: TextField(
+            obscureText: true,
+            decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: "Enter a new name ..."),
+          ),
+        )
+      ],
+    );
+  }
+}

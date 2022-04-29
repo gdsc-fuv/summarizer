@@ -1,21 +1,31 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
 import '../helpers/text_heading.dart';
 
 class FolderDialog extends StatelessWidget {
-  const FolderDialog({Key? key, required this.folderDialogBody, required this.height}) : super(key: key);
+  const FolderDialog(
+      {Key? key,
+      required this.folderDialogBody,
+      required this.width,
+      required this.height,
+      required this.rightText})
+      : super(key: key);
 
   final Widget folderDialogBody;
+  final double width;
   final double height;
+  final String rightText;
 
   @override
   Widget build(BuildContext context) {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
       child: Container(
-        width: 500,
-        height: height,
+        width: this.width,
+        height: this.height,
         child: Column(
           children: [
             Container(
@@ -56,7 +66,7 @@ class FolderDialog extends StatelessWidget {
                   const SizedBox(width: 20),
                   ElevatedButton(
                     onPressed: () {},
-                    child: const LabelMedium("Move here"),
+                    child: LabelMedium(rightText),
                     style: ElevatedButton.styleFrom(
                       primary: AppColors.primBlue,
                     ),
