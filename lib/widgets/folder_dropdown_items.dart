@@ -176,7 +176,7 @@ class RenameBox extends StatelessWidget {
         SizedBox(
           width: 450,
           child: TextField(
-            obscureText: true,
+            obscureText: false,
             decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: "Enter a new name ..."),
@@ -202,7 +202,7 @@ class SubfolderName extends StatelessWidget {
         SizedBox(
           width: 450,
           child: TextField(
-            obscureText: true,
+            obscureText: false,
             decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: "Enter a new name ..."),
