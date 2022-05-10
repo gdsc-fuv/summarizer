@@ -50,7 +50,9 @@ class FolderDialog extends StatelessWidget {
               height: 80,
               width: double.infinity,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: rightText == "Delete"
+                    ? MainAxisAlignment.center
+                    : MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   ElevatedButton(
