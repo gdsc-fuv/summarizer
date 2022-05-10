@@ -51,6 +51,17 @@ class FolderDropdownItems extends StatelessWidget {
                     folderDialogBody: SubfolderName());
               });
         }
+        if (result == 4) {
+          showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return const FolderDialog(
+                    rightText: "Delete",
+                    width: 500,
+                    height: 250,
+                    folderDialogBody: DeleteBox());
+              });
+        }
       },
       itemBuilder: (context) => [
         PopupMenuItem(
@@ -208,6 +219,27 @@ class SubfolderName extends StatelessWidget {
                 labelText: "Enter a new name ..."),
           ),
         )
+      ],
+    );
+  }
+}
+
+class DeleteBox extends StatelessWidget {
+  const DeleteBox({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: const <Widget>[
+        Padding(padding: EdgeInsets.all(15)),
+        TitleLarge("Are you sure?"),
+        Padding(padding: EdgeInsets.symmetric(vertical: 10, horizontal: 3)),
+        Text(
+          "The folder won't be restored after it's deleted.",
+          textAlign: TextAlign.center,
+        ),
       ],
     );
   }
